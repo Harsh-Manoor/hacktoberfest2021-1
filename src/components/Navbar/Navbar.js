@@ -5,9 +5,8 @@ import { NavbarData } from './NavbarData'
 
 const Navbar = () => {
 
-    const [click, setClick] = useState(false)
+    const [click, setClick] = useState(true)
     const handleClick = ()=>setClick(!click)
-    const closeMenu = ()=>setClick(false)
 
     return (
         <>
@@ -16,24 +15,28 @@ const Navbar = () => {
                     <Link to="/" className="navbar-logo">
                         Vectorzz
                     </Link>
-                    <div className="menu-icon" onClick={handleClick}>
-                        <i class={click ? "fas fa-chevron-right" : "fas fa-chevron-left"}></i>
-                    </div>
+                    <Link className="menu-icon" to="#" onClick={handleClick}>
+                        <i class="fas fa-chevron-left"></i>
+                    </Link>
                 </div>
+            </nav>
 
-                {/* <ul className={click ? "nav-menu" : "nav-menu active"}>
-                    {
-                        NavbarData.map((item)=>{
-                            const {title,cName,link} = item;
-                            return(
-                                <li className="nav-item">
-                                    <Link to={link} className={cName} onClick={closeMenu}>{title}</Link>
-                                </li>
-                            )
-                        })
-                    }
-                </ul> */}
-
+            <nav className={click ? "nav-menu" : "nav-menu active"}>
+                <ul className="navbar-menu-items">
+                    <li className="navbar-toggle">
+                        <Link to="#" className="menu-icon">
+                            <i class="fas fa-chevron-right" onClick={handleClick}></i>
+                        </Link>
+                    </li>
+                    {NavbarData.map((item)=>{
+                        const {title,cName,link} = item;
+                        return(
+                            <li className={cName} >
+                                <Link to={link} onClick={handleClick}>{title}</Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </nav>
         </>
     )

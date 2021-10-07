@@ -8,7 +8,7 @@
     width: 100%;
     height: 80px;
     display: flex;
-    background-color: #eee;
+    background-color: #000;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -26,15 +26,82 @@
 }
 
 .navbar-logo{
-    font-size: 28px;
-    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-family: 'Arvo', serif;
     text-decoration: none;
     font-weight: 600;
-    color: rgb(26, 26, 26);
+    color: #fff;
+}
 
+.menu-icon{
+    color: #fff;
+    font-size: 20px;
 }
 
 .nav-menu{
+    background-color: #000;
+    width: 100%;
     height: 100vh;
-    background-color:aqua ;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -100%;
+    transition: 800ms;
+}
+
+.nav-menu.active{
+    right: 0;
+    transition: 800ms;
+}
+
+.navbar-menu-items{
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.navbar-toggle{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar-toggle a{
+    padding-right: 40px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0px 20px 40px;
+    height: 80px;
+    width: auto;
+    list-style: none;
+}
+
+.nav-links a{
+    text-decoration: none;
+    font-size: 60px;
+    color: #444;
+    padding: 10px;
+    font-family: 'Arvo', serif;
+    transition: 300ms;
+}
+
+.nav-links > a:hover{
+    border-bottom: 2px solid white;
+    color: white;
+    transition: 300ms;
+    transform: scale(1.02);
 }
